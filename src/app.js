@@ -9,9 +9,9 @@ import taskRoutes from './routes/taskRoutes.js';
 
 // Debug log to help you see what's happening in the terminal
 if (envResult.error) {
-  console.error("❌ ERROR: Could not find .env file. Check if it's named .env.txt by mistake.");
+  console.error(" ERROR: Could not find .env file. Check if it's named .env.txt by mistake.");
 } else {
-  console.log("✅ .env variables loaded.");
+  console.log(" .env variables loaded.");
 }
 
 const app = express();
@@ -23,7 +23,7 @@ app.use(express.json());
 const dbURI = process.env.MONGO_URI;
 
 if (!dbURI) {
-  console.error("❌ ERROR: MONGO_URI is undefined. Check your .env file content.");
+  console.error(" ERROR: MONGO_URI is undefined. Check your .env file content.");
 } else {
   mongoose.connect(dbURI)
     .then(() => console.log('Connected to MongoDB'))
